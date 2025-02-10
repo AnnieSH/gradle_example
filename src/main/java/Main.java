@@ -26,7 +26,7 @@ public class Main {
         Optional.ofNullable(System.getenv("TMDB_TOKEN"))
             .orElseThrow(() -> new IllegalStateException("No TMDB token found"));
 
-    TMDBClient tmdbClient = new TMDBClient(tmdbToken);
+    TMDBClient tmdbClient = new TMDBClient(TMDBClient.TMDB_URL, tmdbToken);
 
     GenresClient genresClient = tmdbClient.getGenresClient();
     DiscoverClient discoverClient = tmdbClient.getDiscoverClient();

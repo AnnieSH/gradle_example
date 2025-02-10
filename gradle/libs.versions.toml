@@ -7,6 +7,7 @@ spring-boot = "3.4.2"
 # Test Dependencies
 junit = "5.10.0"
 mockito = "5.15.2"
+okhttp = "4.12.0"
 
 # Plugins
 shadowPlugin = "8.3.6"
@@ -30,9 +31,15 @@ mockito-bom = { group = "org.mockito", name = "mockito-bom", version.ref = "mock
 mockito-core = { group = "org.mockito", name = "mockito-core" }
 mockito-junit-jupiter = { group = "org.mockito", name = "mockito-junit-jupiter" }
 
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "okhttp" }
+
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring-boot" }
+
 [bundles]
 
 mockito = ["mockito-core", "mockito-junit-jupiter"]
+okhttp-test = ["okhttp", "okhttp-mockwebserver"]
 
 [plugins]
 

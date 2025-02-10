@@ -9,13 +9,15 @@ import tmdb.genres.GenresClient;
 
 @Getter
 public class TMDBClient {
+  public static final String TMDB_URL = "https://api.themoviedb.org/3";
+
   private final GenresClient genresClient;
   private final DiscoverClient discoverClient;
 
-  public TMDBClient(String tmdbToken) {
+  public TMDBClient(String baseUrl, String tmdbToken) {
     WebClient webClient =
         WebClient.builder()
-            .baseUrl("https://api.themoviedb.org/3")
+            .baseUrl(baseUrl)
             .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + tmdbToken)
             .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
             .build();

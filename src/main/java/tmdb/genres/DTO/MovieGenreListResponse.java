@@ -3,14 +3,14 @@ package tmdb.genres.DTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import java.util.Optional;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@Builder
+@Jacksonized
 public class MovieGenreListResponse {
   private List<Genre> genres;
 

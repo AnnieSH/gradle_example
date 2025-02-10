@@ -1,6 +1,7 @@
 plugins {
     id("java")
     application
+    jacoco
 
     // For jar packaging
     alias(libs.plugins.shadow)
@@ -29,6 +30,10 @@ dependencies {
 
     testImplementation(platform(libs.mockito.bom))
     testImplementation(libs.bundles.mockito)
+
+    testImplementation(libs.bundles.okhttp.test)
+
+    testImplementation(libs.spring.boot.starter.test)
 }
 
 // For gradle run
@@ -44,4 +49,5 @@ spotless {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
 }
